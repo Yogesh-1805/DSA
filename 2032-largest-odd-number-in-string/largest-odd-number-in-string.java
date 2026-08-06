@@ -2,20 +2,14 @@ class Solution {
     public String largestOddNumber(String num) {
         int start=0;
         int end=num.length()-1;
-        while(start<=end){
-
-            char ch=num.charAt(end);
-            if(num.charAt(start)==0){
-                start++;
-            }else if((ch-'0')%2==0){
-                end--;
-            }else {
-                break;
-            }
-            
+        while(start<end&& num.charAt(start)=='0'){
+            start++;
         }
-        if (start > end) {
-            return "";
+        while(start<=end&&(num.charAt(end)-'0')%2==0){
+            end--;
+        }
+        if(start>end){
+            return"";
         }
         return num.substring(start,end+1);
         
